@@ -56,7 +56,6 @@
                         required
                         class="block w-full text-black border-2 border-primary focus:border-primary focus:ring-primary rounded-md shadow-sm dark:text-gray-100 dark:bg-slate-800 appearance-none"
                         v-model="selectedLanguage"
-                        @change="changeLanguage($event.target.value)"
                     >
                         <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
                         <option value="cs" :selected="locale === 'cs'" class="flex items-center">
@@ -102,7 +101,6 @@
                 required
                 class="block w-full text-black border-2 border-primary focus:border-primary focus:ring-primary rounded-md shadow-sm dark:text-gray-100 dark:bg-slate-800 appearance-none"
                 v-model="selectedLanguage"
-                @change="changeLanguage($event.target.value)"
             >
                 <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
                 <option value="cs" :selected="locale === 'cs'" class="flex items-center">
@@ -172,7 +170,7 @@
 
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import { ref, onMounted, onUnmounted } from 'vue';
+import {ref, onMounted, onUnmounted, watch} from 'vue';
 import Home from '@/Components/Home.vue';
 import SmallLogo from '@/Components/SmallLogo.vue';
 import FooterLink from '@/Components/FooterLink.vue';
@@ -247,14 +245,16 @@ function redirectToUrl(url: string) {
 
 const { locale } = useI18n();
 
-function changeLanguage(lang: string) {
-    console.log("Changing language to:", lang);
-    locale.value = lang;
-    localStorage.setItem('locale', lang);
-    document.documentElement.setAttribute('lang', lang);
-    selectedLanguage.value = lang; // Update select box
+function changeLanguage() {
+    console.log("Changing language to:", selectedLanguage.value);
+    locale.value = selectedLanguage.value;
+    localStorage.setItem('locale', selectedLanguage.value);
+    document.documentElement.setAttribute('lang', selectedLanguage.value);
     closeMenu();
 }
+
+// Watch for changes in selectedLanguage to call changeLanguage
+watch(selectedLanguage, changeLanguage);
 </script>
 
 <style scoped>
