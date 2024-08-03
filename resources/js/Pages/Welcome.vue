@@ -58,10 +58,7 @@
                         v-model="selectedLanguage"
                     >
                         <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
-                        <option value="cs" :selected="locale === 'cs'" class="flex items-center">
-                            <img src="/storage/cz_flag.jpg" alt="Čeština" class="w-5 h-5 mr-2" />
-                            Čeština
-                        </option>
+                        <option value="cs" :selected="locale === 'cs'" class="flex items-center">Čeština</option>
                         <!-- Add more categories with flags -->
                     </select>
                 </div>
@@ -103,10 +100,7 @@
                 v-model="selectedLanguage"
             >
                 <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
-                <option value="cs" :selected="locale === 'cs'" class="flex items-center">
-                    <img src="/storage/cz_flag.jpg" alt="Čeština" class="w-5 h-5 mr-2" />
-                    Čeština
-                </option>
+                <option value="cs" :selected="locale === 'cs'" class="flex items-center">Čeština</option>
                 <!-- Add more categories with flags -->
             </select>
         </div>
@@ -199,7 +193,7 @@ onMounted(() => {
     }
 
     // Initialize locale from localStorage
-    const savedLocale = localStorage.getItem('locale');
+    const savedLocale = localStorage.getItem('locale') || 'en';
     if (savedLocale) {
         locale.value = savedLocale;
         document.documentElement.setAttribute('lang', savedLocale);
