@@ -55,6 +55,7 @@
                         id="language"
                         required
                         class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        v-model="selectedLanguage"
                     >
                         <option value="" disabled>Select language</option>
                         <option value="en" class="flex items-center">English</option>
