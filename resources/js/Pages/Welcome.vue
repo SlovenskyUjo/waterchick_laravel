@@ -52,14 +52,13 @@
                 </span>
                 <div class="relative hidden md:inline">
                     <select
-                        id="category"
+                        id="language"
                         required
-                        class="block w-full text-black border-2 border-primary focus:border-primary focus:ring-primary rounded-md shadow-sm dark:text-gray-100 dark:bg-slate-800 appearance-none"
-                        v-model="selectedLanguage"
+                        class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                     >
-                        <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
-                        <option value="cs" :selected="locale === 'cs'" class="flex items-center">Čeština</option>
-                        <!-- Add more categories with flags -->
+                        <option value="" disabled>Select language</option>
+                        <option value="en" class="flex items-center">English</option>
+                        <option value="cs" class="flex items-center">Čeština</option>
                     </select>
                 </div>
             </div>
@@ -169,6 +168,8 @@ import Home from '@/Components/Home.vue';
 import SmallLogo from '@/Components/SmallLogo.vue';
 import FooterLink from '@/Components/FooterLink.vue';
 import { useI18n } from 'vue-i18n';
+import InputLabel from "@/Components/InputLabel.vue";
+import InputError from "@/Components/InputError.vue";
 
 const open = ref(false);
 const theme = ref("light");
