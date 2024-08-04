@@ -12,7 +12,7 @@
 }
 
 .btn {
-    @apply px-3 py-2.5 shadow-xl z-10 inline-flex items-center gap-2 w-fit duration-300;
+    @apply px-5 py-2.5 shadow-xl z-10 inline-flex items-center gap-2 w-fit duration-300;
 }
 
 .btn-filled {

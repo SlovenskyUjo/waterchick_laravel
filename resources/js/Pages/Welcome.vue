@@ -54,7 +54,7 @@
                     <select
                         id="language"
                         required
-                        class="mt-1 block w-full border-primary border-2 focus:border-primary focus:ring-primary dark:bg-slate-800 rounded-md shadow-sm"
+                        class=" block px-3 py-2.5 w-full border-primary border-2 focus:border-primary focus:ring-primary dark:bg-slate-800 rounded-md shadow-sm"
                         v-model="selectedLanguage"
                     >
                         <option value="" disabled>Select language</option>
@@ -96,7 +96,7 @@
             <select
                 id="category"
                 required
-                class="block w-full text-black border-2 border-primary focus:border-primary focus:ring-primary rounded-md shadow-sm dark:text-white dark:bg-slate-800 appearance-none"
+                class="py-2.5 block w-full text-black border-2 border-primary focus:border-primary focus:ring-primary rounded-md shadow-sm dark:text-white dark:bg-slate-800 appearance-none"
                 v-model="selectedLanguage"
             >
                 <option value="en" :selected="locale === 'en'" class="flex items-center">English</option>
