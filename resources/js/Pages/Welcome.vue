@@ -127,7 +127,7 @@
                         <img :src="plugin.image" alt="" class="w-full h-auto object-cover transition duration-500 transform group-hover:scale-110" />
                     </div>
                     <!-- Content below the image -->
-                    <div class="p-4 bg-white dark:bg-gray-800">
+                    <div class="p-4 bg-white h-full dark:bg-gray-800">
                         <h4 class="text-xl font-semibold text-gray-900 dark:text-gray-200 mb-2">{{ plugin.name }}</h4>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">{{ plugin.description }}</p>
                         <div class="flex justify-center items-center">

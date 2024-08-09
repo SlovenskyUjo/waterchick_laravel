@@ -46,7 +46,7 @@ const editPlugin = (id: number) => {
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <article class="container p-10 w-full">
-                        <h2 class="ms-4 font-bold text-lg">Add new plugin!</h2>
+                        <h2 class="ms-4 font-bold text-lg">Add new project!</h2>
                         <AddForm />
                     </article>
                 </div>

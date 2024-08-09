@@ -22,7 +22,8 @@ Route::get('/', [PluginController::class, 'index'])->name('welcome');
 Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.create');
-    Route::delete('/dashboard/{plugins}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
+    Route::delete('/dashboard/projects/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
+
 });
 
 
