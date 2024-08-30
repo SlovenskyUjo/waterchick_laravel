@@ -151,6 +151,35 @@
             </div>
         </div>
     </section>
+
+    <section id="contact" class="container mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <!-- Formulár -->
+        <div class="w-full max-w-lg mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200 mb-4">{{ $t('contact') }}</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-500">{{ $t('contactDesc') }}</p>
+            </div>
+            <form @submit.prevent="sendEmail" method="POST" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your name</label>
+                        <input v-model="formData.name" type="text" id="name" name="name" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+                        <input v-model="formData.email" type="email" id="email" name="email" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                    <textarea v-model="formData.message" id="message" name="message" rows="4" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                </div>
+                <button type="submit" class="bg-primary text-white py-2 px-4 rounded-md shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">{{ $t('contactBtn') }}</button>
+            </form>
+        </div>
+    </section>
+
+
     <!-- Footer -->
     <footer class="dark:bg-slate-700 bg-slate-100 text-center py-2 relative">
         <div>
@@ -169,14 +198,51 @@ import Home from '@/Components/Home.vue';
 import SmallLogo from '@/Components/SmallLogo.vue';
 import FooterLink from '@/Components/FooterLink.vue';
 import { useI18n } from 'vue-i18n';
-import InputLabel from "@/Components/InputLabel.vue";
-import InputError from "@/Components/InputError.vue";
+import emailjs from 'emailjs-com';
+
 
 const open = ref(false);
 const theme = ref("light");
 const isNavbarScrolled = ref(false);
 const navbarRef = ref<HTMLElement | null>(null);
 const selectedLanguage = ref<string>("");
+
+const formData = ref({
+    name: '',
+    email: '',
+    message: ''
+});
+
+const sendEmail = (event: Event) => {
+    event.preventDefault();
+
+    const { name, email, message } = formData.value;
+
+    console.log('Sending email with:', { name, email, message });
+
+    emailjs.send('service_rvw7qcj', 'template_ylv29cx', {
+        name: name,
+        email: email,
+        message: message
+    }, 'oT4Vkny2712AwqY9R')
+        .then((response) => {
+            console.log('Email sent successfully:', response);
+            alert('Your message has been sent!');
+
+            // Vymazanie formulára
+            formData.value = {
+                name: '',
+                email: '',
+                message: ''
+            };
+        })
+        .catch((error) => {
+            console.error('Error sending email:', error);
+            alert('There was an error sending your message.');
+        });
+};
+
+
 
 const handleScroll = () => {
     const navbarHeight = navbarRef.value?.offsetHeight || 0;
@@ -215,6 +281,7 @@ const props = defineProps<{
 const links = [
     { name: "home", link: "#home" },
     { name: "Portfolio", link: "#portfolio" },
+    { name: "Contact", link: "#contact" }
 ];
 
 function MenuOpen() {
@@ -265,4 +332,21 @@ watch(selectedLanguage, changeLanguage);
     backdrop-filter: blur(5px);
     background-color: rgba(15, 23, 42, 0.8); /* Dark blur effect */
 }
+
+@keyframes draw {
+    from {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+    }
+}
+
+.stroke-animation {
+    animation: draw 4s ease forwards; /* Zmeniť 4s na požadovaný čas animácie */
+}
+
+
 </style>
