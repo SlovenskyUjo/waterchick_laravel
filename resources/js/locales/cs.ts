@@ -14,6 +14,6 @@ export default {
     contactNameInput: 'Vaše jméno',
     contactEmailInput: 'Emailová adresa',
     contactMessageInput: 'Zpráva',
-    contactDesc: 'Budu rád, pokud se mi ozvete. Vyplňte prosím nasledujúci formulář.',
+    contactDesc: 'Budu rád, pokud se mi ozvete. Vyplňte prosím následující formulář.',
     contactBtn: 'Odeslat'
 }
