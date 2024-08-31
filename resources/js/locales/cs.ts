@@ -1,6 +1,6 @@
 export default {
     home: 'Domů',
-    contactNav: 'Contact',
+    contactNav: 'Kontakt',
     experiences: 'Roky',
     experiencesSpan: 'zkušeností',
     completed: 'Dokončené',
