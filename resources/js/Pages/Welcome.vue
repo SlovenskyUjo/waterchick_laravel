@@ -162,16 +162,16 @@
             <form @submit.prevent="sendEmail" method="POST" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Your name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ $t('contactNameInput') }}</label>
                         <input v-model="formData.name" type="text" id="name" name="name" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ $t('contactEmailInput') }}</label>
                         <input v-model="formData.email" type="email" id="email" name="email" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" />
                     </div>
                 </div>
                 <div class="mb-6">
-                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ $t('contactMessageInput') }}</label>
                     <textarea v-model="formData.message" id="message" name="message" rows="4" required class="block w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
                 </div>
                 <button type="submit" class="bg-primary text-white py-2 px-4 rounded-md shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">{{ $t('contactBtn') }}</button>
