@@ -281,7 +281,7 @@ const props = defineProps<{
 const links = [
     { name: "home", link: "#home" },
     { name: "Portfolio", link: "#portfolio" },
-    { name: "Contact", link: "#contact" }
+    { name: "contactNav", link: "#contact" }
 ];
 
 function MenuOpen() {

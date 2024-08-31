@@ -1,5 +1,6 @@
 export default {
     home: 'Home',
+    contactNav: 'Kontakt',
     experiences: 'Years of',
     experiencesSpan: 'Experience',
     completed: 'Completed',

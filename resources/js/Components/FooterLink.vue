@@ -10,5 +10,6 @@
 const links = [
     {name: "home", link: "#home"},
     {name: "Portfolio", link: "#portfolio"},
+    {name: "contactNav", link: "#contact"},
 ]
 </script>
